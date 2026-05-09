@@ -1,0 +1,4 @@
+* { box-sizing: border-box; }
+html, body, #root { min-height: 100%; margin: 0; }
+body { background: #050506; color: #e8e8ec; overflow-x: hidden; }
+button, input { font: inherit; }
