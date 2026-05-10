@@ -21,10 +21,10 @@ public class File {
     @Id
     @GeneratedValue(strategy = GenerationType.UUID)
     private UUID id;
+    private UUID userId;
     private String fileName;
     @Column(columnDefinition = "TEXT")
     private String content;
-    @JoinColumn(name = "workspace_id")
     private LocalDateTime createdDate;
     private LocalDateTime modifiedDate;
 }

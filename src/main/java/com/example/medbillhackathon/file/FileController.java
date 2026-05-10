@@ -37,7 +37,7 @@ public class FileController {
 
     @PostMapping
     public ResponseEntity<Void> createFile(@RequestBody CreateFileRequest request) {
-        fileService.save(request.fileName(), request.workspaceId());
+        fileService.save(request.fileName(), request.userId());
         return ResponseEntity.status(HttpStatus.CREATED).build();
 
     }

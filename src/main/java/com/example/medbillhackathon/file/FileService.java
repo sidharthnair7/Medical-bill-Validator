@@ -16,7 +16,7 @@ public class FileService {
 
 
     public List<FileDTO> findAll(UUID userId) {
-        return repository.findByFileId(userId)
+        return repository.findByUserId(userId)
                 .stream()
                 .map(file -> new FileDTO(
                         file.getId(),
@@ -42,11 +42,11 @@ public class FileService {
         return fileDto;
     }
 
-    //CREATE
-    public void save(String fileName,UUID id) {
+
+    public void save(String fileName,UUID userId) {
         File file = File.builder()
                 .fileName(fileName)
-                .id(id)
+                .userId(userId)
                 .createdDate(LocalDateTime.now())
                 .modifiedDate(LocalDateTime.now())
                 .build();

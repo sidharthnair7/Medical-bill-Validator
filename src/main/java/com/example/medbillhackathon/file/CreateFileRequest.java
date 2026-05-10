@@ -4,5 +4,5 @@ import java.util.UUID;
 
 public record CreateFileRequest(
         String fileName,
-        UUID workspaceId
+        UUID userId
 ) {}
