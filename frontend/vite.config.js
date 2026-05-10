@@ -13,4 +13,7 @@ export default defineConfig({
       },
     },
   },
+  ssr: {
+    noExternal: ["three", "@react-three/fiber", "@react-three/drei"],
+  },
 });
