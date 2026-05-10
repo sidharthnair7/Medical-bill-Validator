@@ -53,6 +53,7 @@ public class SecurityConfiguration {
                         .requestMatchers("/api/v1/auth/**").permitAll()
                         .requestMatchers("/app/**").permitAll()
                         .requestMatchers("/topic/**").permitAll()
+                        .requestMatchers("/api/v1/insurance/bills/**").authenticated()
                         .requestMatchers("/api/v1/bills/**").authenticated()
                         .requestMatchers("/api/v1/files/**").authenticated()
 
