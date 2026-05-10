@@ -201,7 +201,7 @@ function BillRow({ code, desc, amount, flagged }) {
                 cursor: "none",
             }}
         >
-      <span style={{ fontFamily: "DM Mono, monospace", color: "#666672", fontSize: "0.7rem", flexShrink: 0 }}>
+      <span style={{ fontFamily: "DM Mono, monospace", color: "#ffffff", fontSize: "0.7rem", flexShrink: 0 }}>
         {code}
       </span>
             <span style={{ flex: 1, color: "#c0c0cc" }}>{desc}</span>
@@ -213,7 +213,7 @@ function BillRow({ code, desc, amount, flagged }) {
                     fontSize: "0.55rem", flexShrink: 0,
                     background: flagged ? "rgba(255,80,80,0.15)" : "rgba(255,255,255,0.08)",
                     border: flagged ? "1px solid rgba(255,80,80,0.35)" : "none",
-                    color: flagged ? "#ff8888" : "#666672",
+                    color: flagged ? "#ff8888" : "#ffffff",
                     animation: flagged ? "flagPulse 2s infinite" : "none",
                 }}
             >
@@ -367,7 +367,7 @@ function AnalysisCard() {
         >
             {/* Header */}
             <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", marginBottom: "1.5rem", paddingBottom: "1rem", borderBottom: "1px solid rgba(255,255,255,0.07)" }}>
-                <span style={{ fontFamily: "DM Mono, monospace", fontSize: "0.63rem", letterSpacing: "0.12em", textTransform: "uppercase", color: "#666672" }}>Live Bill Analysis</span>
+                <span style={{ fontFamily: "DM Mono, monospace", fontSize: "0.63rem", letterSpacing: "0.12em", textTransform: "uppercase", color: "#ffffff" }}>Live Bill Analysis</span>
                 <span style={{ fontFamily: "DM Mono, monospace", fontSize: "0.58rem", letterSpacing: "0.1em", background: "rgba(255,255,255,0.06)", border: "1px solid rgba(255,255,255,0.07)", borderRadius: 4, padding: "0.2rem 0.6rem", color: "#888", textTransform: "uppercase" }}>RAG Active</span>
             </div>
 
@@ -377,32 +377,17 @@ function AnalysisCard() {
             </div>
 
             {/* Savings */}
-            <div style={{ background: "rgba(255,255,255,0.03)", border: "1px solid rgba(255,255,255,0.07)", borderRadius: 12, padding: "1rem 1.2rem", display: "flex", justifyContent: "space-between", alignItems: "center", marginBottom: "1rem" }}>
-                <span style={{ fontFamily: "DM Mono, monospace", fontSize: "0.6rem", letterSpacing: "0.1em", textTransform: "uppercase", color: "#666672" }}>Estimated Savings</span>
+            <div style={{ background: "rgba(255,255,255,0.03)", border: "1px solid rgba(255,255,255,0.07)", borderRadius: 12, padding: "1rem 1.2rem", display: "flex", justifyContent: "space-between", alignItems: "center", marginBottom: "0" }}>
+                <span style={{ fontFamily: "DM Mono, monospace", fontSize: "0.6rem", letterSpacing: "0.1em", textTransform: "uppercase", color: "#ffffff" }}>Estimated Savings</span>
                 <span style={{ fontSize: "1.4rem", fontWeight: 800, letterSpacing: "-0.03em", color: "#fff" }}>${savings}</span>
             </div>
 
-            {/* Chat */}
-            <div style={{ display: "flex", gap: "0.6rem", marginBottom: "0.75rem" }}>
-                <input
-                    value={chatVal}
-                    onChange={e => setChatVal(e.target.value)}
-                    onKeyDown={e => e.key === "Enter" && handleChat()}
-                    placeholder={chatPlaceholder}
-                    style={{ flex: 1, background: "rgba(255,255,255,0.04)", border: "1px solid rgba(255,255,255,0.08)", borderRadius: 10, padding: "0.7rem 1rem", fontFamily: "DM Mono, monospace", fontSize: "0.7rem", color: "#e8e8ec", outline: "none", cursor: "none" }}
-                />
-                <button onClick={handleChat} style={{ background: "rgba(255,255,255,0.08)", border: "1px solid rgba(255,255,255,0.18)", borderRadius: 10, padding: "0.7rem 1rem", color: "#fff", cursor: "none", fontSize: "0.8rem" }}>→</button>
-            </div>
+            {/* Subtle Grounding Text to balance the card */}
+            <div style={{
+                textAlign: "center", fontFamily: "DM Mono, monospace", fontSize: "0.55rem",
+                letterSpacing: "0.08em", color: "#555562", textTransform: "uppercase", marginTop: "1.5rem"
+            }}>
 
-            {/* Upload */}
-            <div
-                onClick={() => fileRef.current?.click()}
-                style={{ border: "1.5px dashed rgba(255,255,255,0.18)", borderRadius: 10, padding: "1.2rem", textAlign: "center", fontFamily: "DM Mono, monospace", fontSize: "0.63rem", letterSpacing: "0.08em", textTransform: "uppercase", color: "#666672", cursor: "none", transition: "all 0.3s ease" }}
-                onMouseEnter={e => { e.currentTarget.style.borderColor = "rgba(255,255,255,0.35)"; e.currentTarget.style.color = "#fff"; }}
-                onMouseLeave={e => { e.currentTarget.style.borderColor = "rgba(255,255,255,0.18)"; e.currentTarget.style.color = "#666672"; }}
-            >
-                {uploadLabel}
-                <input ref={fileRef} type="file" accept=".pdf,.jpg,.png" style={{ display: "none" }} onChange={e => e.target.files[0] && handleFile(e.target.files[0])} />
             </div>
         </div>
     );
@@ -425,7 +410,7 @@ function StatItem({ num, label, delay }) {
              onMouseLeave={e => e.currentTarget.style.background = "transparent"}
         >
             <div style={{ fontSize: "2.8rem", fontWeight: 800, letterSpacing: "-0.04em", color: "#fff", lineHeight: 1, marginBottom: "0.4rem" }}>{num}</div>
-            <div style={{ fontFamily: "DM Mono, monospace", fontSize: "0.63rem", letterSpacing: "0.1em", textTransform: "uppercase", color: "#666672" }}>{label}</div>
+            <div style={{ fontFamily: "DM Mono, monospace", fontSize: "0.63rem", letterSpacing: "0.1em", textTransform: "uppercase", color: "#ffffff" }}>{label}</div>
         </div>
     );
 }
@@ -447,7 +432,7 @@ function FeatureCard({ icon, name, desc }) {
                 {icon}
             </div>
             <div style={{ fontSize: "1rem", fontWeight: 700, letterSpacing: "-0.02em", color: "#fff", marginBottom: "0.6rem" }}>{name}</div>
-            <div style={{ fontSize: "0.83rem", color: "#666672", lineHeight: 1.65 }}>{desc}</div>
+            <div style={{ fontSize: "0.83rem", color: "#ffffff", lineHeight: 1.65 }}>{desc}</div>
         </div>
     );
 }
@@ -517,12 +502,22 @@ const FEATURES = [
     { icon: "⬙", name: "Dispute Assist", desc: "One-click generation of formal appeal letters citing exact policy sections and CPT code mismatches." },
 ];
 
-export default function InsurCheck() {
+export default function InsurCheck({ onSignIn, onSignUp }) {
     const mouseRef = useRef(new THREE.Vector2(0.5, 0.5));
     const [statusIdx, setStatusIdx] = useState(0);
     const [statusVisible, setStatusVisible] = useState(true);
     const [featVisible, setFeatVisible] = useState(false);
     const featRef = useRef();
+
+    // Add this right below the featRef useEffect
+    const [storyVisible, setStoryVisible] = useState(false);
+    const storyRef = useRef();
+
+    useEffect(() => {
+        const io = new IntersectionObserver(([e]) => { if (e.isIntersecting) setStoryVisible(true); }, { threshold: 0 });
+        if (storyRef.current) io.observe(storyRef.current);
+        return () => io.disconnect();
+    }, []);
 
     useEffect(() => {
         const onMove = (e) => {
@@ -591,14 +586,18 @@ export default function InsurCheck() {
                 {/* NAV */}
                 <nav style={{ display: "flex", justifyContent: "space-between", alignItems: "center", padding: "2rem 3.5rem", borderBottom: "1px solid rgba(255,255,255,0.07)", backdropFilter: "blur(14px)", WebkitBackdropFilter: "blur(14px)", background: "rgba(6,6,8,0.42)", position: "sticky", top: 0, zIndex: 100, animation: "fadeDown 0.8s cubic-bezier(0.16,1,0.3,1) both" }}>
                     <div style={{ fontSize: "1.3rem", fontWeight: 800, letterSpacing: "-0.03em", textTransform: "uppercase", color: "#fff", cursor: "none" }}>
-                        INSUR<span style={{ color: "#666672", fontWeight: 500 }}>CHECK</span>
+                        INSUR<span style={{ color: "#ffffff", fontWeight: 500 }}>CHECK</span>
                     </div>
                     <div style={{ display: "flex", alignItems: "center", gap: "2rem" }}>
-                        {["How It Works", "Pricing", "Enterprise"].map(l => (
-                            <a key={l} href="#" style={{ fontFamily: "DM Mono, monospace", fontSize: "0.72rem", fontWeight: 500, letterSpacing: "0.07em", textTransform: "uppercase", color: "#666672", textDecoration: "none", cursor: "none", transition: "color 0.2s" }}
+                        {[
+                            { name: "How It Works", target: "features" },
+                            { name: "Story", target: "story" },
+                            { name: "Enterprise", target: "enterprise" }
+                        ].map(link => (
+                            <a key={link.name} href={`#${link.target}`} style={{ fontFamily: "DM Mono, monospace", fontSize: "0.72rem", fontWeight: 500, letterSpacing: "0.07em", textTransform: "uppercase", color: "#a8a8b8", textDecoration: "none", cursor: "none", transition: "color 0.2s" }}
                                onMouseEnter={e => e.target.style.color="#fff"}
-                               onMouseLeave={e => e.target.style.color="#666672"}
-                            >{l}</a>
+                               onMouseLeave={e => e.target.style.color="#a8a8b8"}
+                            >{link.name}</a>
                         ))}
                         <div style={{ display: "flex", alignItems: "center", gap: "0.5rem", fontFamily: "DM Mono, monospace", fontSize: "0.63rem", letterSpacing: "0.12em", textTransform: "uppercase", color: "#888", background: "rgba(10,10,14,0.55)", border: "1px solid rgba(255,255,255,0.07)", backdropFilter: "blur(20px)", borderRadius: 100, padding: "0.45rem 1rem" }}>
                             <div style={{ width: 6, height: 6, background: "#fff", borderRadius: "50%", boxShadow: "0 0 8px rgba(255,255,255,0.8)", animation: "pulse 2.5s infinite" }} />
@@ -610,19 +609,19 @@ export default function InsurCheck() {
                 {/* HERO */}
                 <div style={{ padding: "7rem 3.5rem 5rem", display: "grid", gridTemplateColumns: "1fr 1fr", gap: "4rem", alignItems: "center", maxWidth: 1400, margin: "0 auto" }}>
                     <div style={{ animation: "fadeUp 1s 0.15s cubic-bezier(0.16,1,0.3,1) both" }}>
-                        <div style={{ display: "inline-flex", alignItems: "center", gap: "0.6rem", fontFamily: "DM Mono, monospace", fontSize: "0.66rem", letterSpacing: "0.15em", textTransform: "uppercase", color: "#666672", marginBottom: "1.8rem" }}>
-                            <span style={{ display: "inline-block", width: 24, height: 1, background: "#666672" }} />
+                        <div style={{ display: "inline-flex", alignItems: "center", gap: "0.6rem", fontFamily: "DM Mono, monospace", fontSize: "0.66rem", letterSpacing: "0.15em", textTransform: "uppercase", color: "#ffffff", marginBottom: "1.8rem" }}>
+                            <span style={{ display: "inline-block", width: 24, height: 1, background: "#ffffff" }} />
                             RAG-Powered Insurance Intelligence
                         </div>
                         <h1 style={{ fontSize: "clamp(3rem,5vw,5.5rem)", fontWeight: 800, lineHeight: 0.95, letterSpacing: "-0.04em", marginBottom: "1.5rem", background: "linear-gradient(160deg,#ffffff 0%,#9090a0 100%)", WebkitBackgroundClip: "text", WebkitTextFillColor: "transparent", backgroundClip: "text" }}>
                             Neural<br/>Bill<br/>Analysis
                         </h1>
-                        <p style={{ fontSize: "1.05rem", color: "#666672", lineHeight: 1.65, maxWidth: 420, marginBottom: "2.8rem", fontWeight: 400 }}>
+                        <p style={{ fontSize: "1.05rem", color: "#ffffff", lineHeight: 1.65, maxWidth: 420, marginBottom: "2.8rem", fontWeight: 400 }}>
                             Decoding insurance complexity through AI. Enterprise-grade black&nbsp;&amp;&nbsp;white architecture that flags overcharges in real-time.
                         </p>
                         <div style={{ display: "flex", gap: "1rem", alignItems: "center" }}>
-                            <MagneticBtn variant="solid">Upload Bill</MagneticBtn>
-                            <MagneticBtn variant="outline">Ask AI</MagneticBtn>
+                            <MagneticBtn variant="solid" onClick={onSignUp}>Sign Up</MagneticBtn>
+                            <MagneticBtn variant="outline" onClick={onSignIn}>Sign In</MagneticBtn>
                         </div>
                     </div>
                     <div style={{ animation: "fadeUp 1s 0.3s cubic-bezier(0.16,1,0.3,1) both" }}>
@@ -638,8 +637,9 @@ export default function InsurCheck() {
                 </div>
 
                 {/* FEATURES */}
-                <div ref={featRef} style={{ padding: "7rem 3.5rem", maxWidth: 1400, margin: "0 auto", opacity: featVisible ? 1 : 0, transform: featVisible ? "translateY(0)" : "translateY(30px)", transition: "opacity 0.8s cubic-bezier(0.16,1,0.3,1), transform 0.8s cubic-bezier(0.16,1,0.3,1)" }}>
-                    <div style={{ fontFamily: "DM Mono, monospace", fontSize: "0.63rem", letterSpacing: "0.15em", textTransform: "uppercase", color: "#666672", marginBottom: "1rem" }}>What We Do</div>
+                {/* FEATURES */}
+                <div id="features" ref={featRef} style={{ padding: "7rem 3.5rem", maxWidth: 1400, margin: "0 auto", opacity: featVisible ? 1 : 0, transform: featVisible ? "translateY(0)" : "translateY(30px)", transition: "opacity 0.8s cubic-bezier(0.16,1,0.3,1), transform 0.8s cubic-bezier(0.16,1,0.3,1)" }}>
+                    <div style={{ fontFamily: "DM Mono, monospace", fontSize: "0.63rem", letterSpacing: "0.15em", textTransform: "uppercase", color: "#ffffff", marginBottom: "1rem" }}>What We Do</div>
                     <h2 style={{ fontSize: "clamp(2rem,3.5vw,3.5rem)", fontWeight: 800, letterSpacing: "-0.04em", lineHeight: 1.05, color: "#fff", maxWidth: 500, marginBottom: "4rem" }}>
                         Enterprise intelligence built for medical billing
                     </h2>
@@ -648,9 +648,108 @@ export default function InsurCheck() {
                     </div>
                 </div>
 
+                {/* STORY */}
+                <div id="story" ref={storyRef} style={{ padding: "8rem 3.5rem", maxWidth: 1400, margin: "0 auto", opacity: storyVisible ? 1 : 0, transform: storyVisible ? "translateY(0)" : "translateY(30px)", transition: "opacity 0.9s cubic-bezier(0.16,1,0.3,1), transform 0.9s cubic-bezier(0.16,1,0.3,1)" }}>
+
+                    {/* Section label */}
+                    <div style={{ display: "inline-flex", alignItems: "center", gap: "0.6rem", fontFamily: "DM Mono, monospace", fontSize: "0.63rem", letterSpacing: "0.15em", textTransform: "uppercase", color: "#ffffff", marginBottom: "1.5rem" }}>
+                        <span style={{ display: "inline-block", width: 24, height: 1, background: "#ffffff" }} />
+                        Origin Story
+                    </div>
+
+                    {/* Headline */}
+                    <h2 style={{ fontSize: "clamp(2.5rem,4vw,4.5rem)", fontWeight: 800, letterSpacing: "-0.04em", lineHeight: 1.0, color: "#fff", maxWidth: 700, marginBottom: "5rem", background: "linear-gradient(160deg,#ffffff 0%,#8080a0 100%)", WebkitBackgroundClip: "text", WebkitTextFillColor: "transparent", backgroundClip: "text" }}>
+                        We built what<br />we needed.
+                    </h2>
+
+                    {/* Opening narrative — two-col grid */}
+                    <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "1.5px", background: "rgba(255,255,255,0.07)", border: "1px solid rgba(255,255,255,0.07)", borderRadius: 24, overflow: "hidden", marginBottom: "1.5px" }}>
+                        <div style={{ background: "#060608", padding: "3rem", borderRight: "1px solid rgba(255,255,255,0.07)" }}>
+                            <div style={{ fontFamily: "DM Mono, monospace", fontSize: "0.58rem", letterSpacing: "0.15em", textTransform: "uppercase", color: "#ffffff", marginBottom: "1.2rem" }}>The Problem</div>
+                            <p style={{ fontSize: "1.05rem", color: "#a8a8b8", lineHeight: 1.8, marginBottom: "1.2rem" }}>
+                                The healthcare billing system wasn't designed to be understood — it was designed to be paid. After a routine hospital visit in 2022, our founder received a 14-page bill itemized in CPT codes, DRG classifications, and modifier flags that no layperson could decode.
+                            </p>
+                            <p style={{ fontSize: "1.05rem", color: "#a8a8b8", lineHeight: 1.8 }}>
+                                Three line items were billed twice. One procedure was coded at a severity level that didn't match the visit. The total overcharge: <strong style={{ color: "#fff", fontWeight: 700 }}>$1,240</strong>. The hospital's billing department offered no explanation. The insurance company's appeals process took four months.
+                            </p>
+                        </div>
+                        <div style={{ background: "#060608", padding: "3rem" }}>
+                            <div style={{ fontFamily: "DM Mono, monospace", fontSize: "0.58rem", letterSpacing: "0.15em", textTransform: "uppercase", color: "#ffffff", marginBottom: "1.2rem" }}>The Realization</div>
+                            <p style={{ fontSize: "1.05rem", color: "#a8a8b8", lineHeight: 1.8, marginBottom: "1.2rem" }}>
+                                We began researching. What we found was disturbing: according to the Medical Billing Advocates of America, up to <strong style={{ color: "#fff", fontWeight: 700 }}>90% of hospital bills contain errors</strong>. Hospitals use enterprise billing software optimized for revenue. Patients have nothing.
+                            </p>
+                            <p style={{ fontSize: "1.05rem", color: "#a8a8b8", lineHeight: 1.8 }}>
+                                The information asymmetry was total — and entirely artificial. The data to verify every single charge already existed. CPT code benchmarks, CMS fee schedules, policy documents. It simply needed to be made accessible in real time.
+                            </p>
+                        </div>
+                    </div>
+
+                    {/* Timeline strip */}
+                    <div style={{ display: "grid", gridTemplateColumns: "repeat(4,1fr)", gap: "1.5px", background: "rgba(255,255,255,0.07)", marginBottom: "1.5px" }}>
+                        {[
+                            { year: "2022", event: "The Bill", detail: "A $4,100 hospital invoice. Three duplicate charges. Zero explanation." },
+                            { year: "2023", event: "The Research", detail: "Eight months studying CPT taxonomy, RAG architectures, and policy NLP." },
+                            { year: "2024", event: "The Engine", detail: "First neural audit pipeline built. Beta tested on 2,000 anonymized bills." },
+                            { year: "2025", event: "InsurCheck", detail: "Launched publicly. $4.2M in patient savings within the first quarter." },
+                        ].map(({ year, event, detail }, i) => (
+                            <div key={year} style={{ background: "#060608", padding: "2.5rem 2rem", borderRight: i < 3 ? "1px solid rgba(255,255,255,0.07)" : "none", cursor: "none", transition: "background 0.3s ease" }}
+                                 onMouseEnter={e => e.currentTarget.style.background = "rgba(255,255,255,0.02)"}
+                                 onMouseLeave={e => e.currentTarget.style.background = "#060608"}
+                            >
+                                <div style={{ fontFamily: "DM Mono, monospace", fontSize: "0.6rem", letterSpacing: "0.15em", textTransform: "uppercase", color: "#555568", marginBottom: "0.8rem" }}>{year}</div>
+                                <div style={{ fontSize: "1.1rem", fontWeight: 700, letterSpacing: "-0.02em", color: "#fff", marginBottom: "0.7rem" }}>{event}</div>
+                                <div style={{ fontFamily: "DM Mono, monospace", fontSize: "0.72rem", color: "#888898", lineHeight: 1.65 }}>{detail}</div>
+                            </div>
+                        ))}
+                    </div>
+
+                    {/* Large quote block */}
+                    <div style={{ background: "rgba(10,10,14,0.55)", border: "1px solid rgba(255,255,255,0.07)", borderRadius: 0, padding: "3.5rem 4rem", backdropFilter: "blur(20px)", WebkitBackdropFilter: "blur(20px)", position: "relative", overflow: "hidden", marginBottom: "1.5px" }}>
+                        <div style={{ position: "absolute", top: "1.5rem", left: "3rem", fontFamily: "Georgia, serif", fontSize: "6rem", color: "rgba(255,255,255,0.04)", lineHeight: 1, pointerEvents: "none", userSelect: "none" }}>"</div>
+                        <p style={{ fontSize: "clamp(1.1rem,1.8vw,1.5rem)", fontWeight: 600, letterSpacing: "-0.02em", color: "#ffffff", lineHeight: 1.55, maxWidth: 800, position: "relative", zIndex: 1, marginBottom: "1.5rem" }}>
+                            Patients aren't losing to a broken system — they're losing to an information gap. Close the gap, and the system becomes fair. That's what InsurCheck does.
+                        </p>
+                        <div style={{ display: "flex", alignItems: "center", gap: "1rem" }}>
+                            <div style={{ width: 32, height: 32, background: "rgba(255,255,255,0.08)", border: "1px solid rgba(255,255,255,0.12)", borderRadius: "50%", display: "flex", alignItems: "center", justifyContent: "center", fontSize: "0.8rem" }}>◉</div>
+                            <div>
+                                <div style={{ fontFamily: "DM Mono, monospace", fontSize: "0.63rem", letterSpacing: "0.1em", textTransform: "uppercase", color: "#fff" }}>Founder, InsurCheck AI</div>
+                                <div style={{ fontFamily: "DM Mono, monospace", fontSize: "0.55rem", letterSpacing: "0.08em", textTransform: "uppercase", color: "#555568" }}>Est. 2023 — Remote-first</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    {/* Three-col mission cards */}
+                    <div style={{ display: "grid", gridTemplateColumns: "repeat(3,1fr)", gap: "1.5px", background: "rgba(255,255,255,0.07)", border: "1px solid rgba(255,255,255,0.07)", borderRadius: 0, overflow: "hidden", marginBottom: "1.5rem" }}>
+                        {[
+                            { icon: "◈", title: "Radical Transparency", body: "Every flag we surface includes a citation — the exact policy clause, the CMS benchmark, the CPT code definition. We never show a finding without explaining it." },
+                            { icon: "⬡", title: "Neural Infrastructure", body: "Our RAG pipeline ingests policy PDFs, EOBs, and CPT databases into a retrieval layer that answers in under 2 seconds — no waiting, no portals, no callbacks." },
+                            { icon: "◎", title: "Patient-First Economics", body: "InsurCheck earns nothing until you save money. Our model is built on shared recovery — a small percentage of actual savings we help you recover." },
+                        ].map(({ icon, title, body }) => (
+                            <div key={title} style={{ background: "#060608", padding: "2.5rem", cursor: "none", transition: "background 0.3s ease", position: "relative", overflow: "hidden" }}
+                                 onMouseEnter={e => e.currentTarget.style.background = "rgba(255,255,255,0.025)"}
+                                 onMouseLeave={e => e.currentTarget.style.background = "#060608"}
+                            >
+                                <div style={{ width: 40, height: 40, background: "rgba(255,255,255,0.05)", border: "1px solid rgba(255,255,255,0.07)", borderRadius: 10, display: "flex", alignItems: "center", justifyContent: "center", marginBottom: "1.5rem", fontSize: "1.1rem" }}>{icon}</div>
+                                <div style={{ fontSize: "1rem", fontWeight: 700, letterSpacing: "-0.02em", color: "#fff", marginBottom: "0.7rem" }}>{title}</div>
+                                <div style={{ fontSize: "0.85rem", color: "#a8a8b8", lineHeight: 1.7 }}>{body}</div>
+                            </div>
+                        ))}
+                    </div>
+
+                    {/* Bottom CTA strip */}
+                    <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between", background: "rgba(10,10,14,0.55)", border: "1px solid rgba(255,255,255,0.07)", borderRadius: 20, padding: "2rem 2.5rem", backdropFilter: "blur(20px)", WebkitBackdropFilter: "blur(20px)", marginBottom: "1.5rem" }}>
+                        <div>
+                            <div style={{ fontFamily: "DM Mono, monospace", fontSize: "0.58rem", letterSpacing: "0.15em", textTransform: "uppercase", color: "#888898", marginBottom: "0.4rem" }}>Ready to start?</div>
+                            <div style={{ fontSize: "1.1rem", fontWeight: 700, letterSpacing: "-0.02em", color: "#fff" }}>Stop paying blindly. </div>
+                        </div>
+                        <MagneticBtn variant="solid" onClick={onSignUp}>Sign Up Now</MagneticBtn>
+                    </div>
+
+                </div>
+
                 {/* FOOTER */}
                 <footer style={{ borderTop: "1px solid rgba(255,255,255,0.07)", padding: "2rem 3.5rem", display: "flex", justifyContent: "space-between", alignItems: "center" }}>
-                    <div style={{ fontFamily: "DM Mono, monospace", fontSize: "0.6rem", letterSpacing: "0.08em", color: "#666672", textTransform: "uppercase" }}>© 2026 InsurCheck AI — All rights reserved</div>
+                    <div style={{ fontFamily: "DM Mono, monospace", fontSize: "0.6rem", letterSpacing: "0.08em", color: "#ffffff", textTransform: "uppercase" }}>© 2026 InsurCheck AI — All rights reserved</div>
                     <div style={{ fontFamily: "DM Mono, monospace", fontSize: "0.58rem", letterSpacing: "0.15em", color: "rgba(255,255,255,0.2)", textTransform: "uppercase", animation: "breathe 4s infinite" }}>● Neural Network Active</div>
                 </footer>
             </div>

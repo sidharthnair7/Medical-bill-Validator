@@ -6,7 +6,6 @@ export default defineConfig({
   server: {
     port: 5173,
     proxy: {
-      // All /api calls → Spring Boot on 8080
       "/api": {
         target: "http://localhost:8080",
         changeOrigin: true,

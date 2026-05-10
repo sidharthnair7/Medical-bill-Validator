@@ -57,10 +57,13 @@ function AppContent() {
           </button>
         </>
       ) : (
-        <Workspace onShowAuth={() => setShowAuth(true)} />
+          <Workspace
+              onShowAuth={() => setShowAuth(true)}
+              onGoHome={() => setPage("landing")}
+          />
       )}
 
-      {showAuth && <AuthModal onClose={closeAuth} />}
+      {showAuth && <AuthModal onClose={() => setShowAuth(false)} />}
     </>
   );
 }
