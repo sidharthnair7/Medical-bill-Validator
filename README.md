@@ -1,4 +1,4 @@
-# InsurCheck - Medical Bill Validation & Reimbursement Assistant
+# 🧾InsurCheck - Medical Bill Validation & Reimbursement Assistant
 
 InsurCheck is a full-stack AI-powered medical bill validation platform built for the IBM × UNSA Hackathon.
 
