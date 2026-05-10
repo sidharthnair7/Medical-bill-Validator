@@ -15,7 +15,7 @@ The project combines:
 
 Instead of simply sending a bill to an AI model, InsurCheck first performs deterministic backend validation. The AI is used after the system has already extracted bill data and detected issues. This makes the final explanation more grounded, more useful, and more transparent.
 
----
+
 
 ## UseCase
 
@@ -46,7 +46,7 @@ After:
 
 > “This charge appears duplicated, this code may be overbilled, and here are the exact next steps I can take.”
 
----
+
 
 ## Problem
 
@@ -77,7 +77,7 @@ This creates a major information gap, especially for:
 
 InsurCheck addresses this gap by giving users a first layer of structured understanding before they contact their provider, insurer, or a professional billing advocate.
 
----
+
 
 ## Solution
 
@@ -97,7 +97,7 @@ The system provides:
 
 The result is a dashboard that helps users understand what may be wrong, why it matters, and what they can do next.
 
----
+
 
 ## Core Idea
 
@@ -117,7 +117,7 @@ Instead:
 
 This makes the AI output more grounded and reduces the risk of unsupported responses.
 
----
+
 
 ## Live Analysis Flow
 
