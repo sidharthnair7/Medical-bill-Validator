@@ -92,9 +92,7 @@ public class CodeLookupService {
                 "If polyps were removed, the code changes. Verify you received the right code."));
     }};
 
-    /**
-     * Look up a billing code and return a patient-friendly explanation.
-     */
+
     public InsuranceDTO.CodeLookupResponse lookup(String code) {
         CodeInfo info = CPT_DESCRIPTIONS.get(code.toUpperCase().trim());
 
@@ -111,7 +109,7 @@ public class CodeLookupService {
             );
         }
 
-        // Unknown code — return what we can
+
         return new InsuranceDTO.CodeLookupResponse(
                 code,
                 detectType(code),
