@@ -16,6 +16,8 @@ The project combines:
 Instead of simply sending a bill to an AI model, InsurCheck first performs deterministic backend validation. The AI is used after the system has already extracted bill data and detected issues. This makes the final explanation more grounded, more useful, and more transparent.
 
 
+[![InsurCheck Demo](https://img.youtube.com/vi/su-qyZI9fh4/0.jpg)](https://youtu.be/su-qyZI9fh4)
+
 
 ## UseCase
 
