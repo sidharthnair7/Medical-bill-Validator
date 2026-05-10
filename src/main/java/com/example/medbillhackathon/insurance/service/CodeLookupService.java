@@ -18,10 +18,7 @@ import java.util.Map;
 @Service
 public class CodeLookupService {
 
-    /**
-     * Static lookup for the most common CPT codes seen on medical bills.
-     * Format: code → CodeInfo record
-     */
+
     private static final Map<String, CodeInfo> CPT_DESCRIPTIONS = new HashMap<>() {{
         // Office Visits - Established Patients
         put("99211", new CodeInfo("Office Visit — Minimal", "Office or other outpatient visit — minimal complexity. " +
